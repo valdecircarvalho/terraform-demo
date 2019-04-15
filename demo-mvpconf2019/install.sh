@@ -9,6 +9,8 @@ sudo apt-get -yqq install nginx git
 
 echo "==> Setup website demo..."
 cd /home/azureuser/ ## arrumar se o nome do usuario azure for diferente 
-sudo git clone hhttps://github.com/valdecircarvalho/terraform-demo ## arrumar o caminho, caso você clone o repo
+sudo git clone https://github.com/valdecircarvalho/terraform-demo ## arrumar o caminho, caso você clone o repo
 cd terraform-demo
+sudo rm -rf demo*
+sudo rm README.md
 sudo cp -r . /var/www/html/
