@@ -1,21 +1,25 @@
-# Demo Terraform
-
-Esse repositório contém o codigo Terraform e o website demo utilizado pelo deploy.
-
-## demo-mvpconf2019
-
-Código utilizado na demonstração realizada durante o evento MVPConfLATAM 2019.
+# Demo Terraform - MVPConfLATAM 2019
 
 **From Zero to Useful: Terraform para Sysadmins** 
 
 _Como começar a usar o Terraform agora para automatizar seu dia a dia_
 
-Link: http://homelaber.com.br/evento-mvpconf-latam-2019-vou-palestrar/
+Esse repositório contém o codigo Terraform e o website demo utilizado pelo deploy.
 
-## instruções:
+   Link: http://homelaber.com.br/evento-mvpconf-latam-2019-vou-palestrar/
+
+## _instruções:
 
 em construção .....................................
 
-## site demo:
+## _referências:
+
+em construção .....................................
+
+## _site demo:
 
 ![Site Demo](../images/demo.jpg)
+
+## _contato:
+
+| Valdecir Carvalho | +55 11 95259-3615 | valdecir.carvalho@outlook.com | http://valdecir.me | [@homelaber](https://twitter.com/homelaber)
