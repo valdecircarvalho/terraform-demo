@@ -16,6 +16,10 @@ em construção .....................................
 
 em construção .....................................
 
+## _ppt:
+
+[Download arquivo powerpoint da apresentação](https://github.com/valdecircarvalho/terraform-demo/blob/master/demo-mvpconf2019/ppt/2019-04-13-Terraform-MVPConf%202019%20-%20Valdecir%20Carvalho%20-%20FINAL.pptx)
+
 ## _site demo:
 
 ![Site Demo](../images/demo.jpg)
