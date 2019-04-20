@@ -32,10 +32,29 @@
             <div class="split-content-vertically-center">
 
                 <div class="split-intro">
-                    <h1>Valdecir Carvalho</h1>
+                    
+                    <?php
+                    echo "<h1>";
+                    echo "SERVER_IP: ";
+                    echo $_SERVER['SERVER_ADDR'];
+                    echo "<br>";
+                    echo "SERVER_NAME: ";
+                    echo $_SERVER['SERVER_NAME'];
+                    echo "<br>";
+                    echo "SERVER_PORT: ";
+                    echo $_SERVER['SERVER_PORT'];
+                    echo "<br>";
+                    echo "REMOTE_IP: ";
+                    echo $_SERVER['REMOTE_ADDR'];
+                    echo "</h1>"
+                    ?>
+                    
+                    <br>
 
                     <span class="tagline">DEMO TERRAFORM</span>
                 </div>
+
+                
 
                 <img src="images/terraform-logo.png" width="75%" height="75%">
 
@@ -44,9 +63,7 @@
                     <p>Website demo via deploy com <a href="http://terraform.io">Terraform</a>.</p>
                     Source: <a href="https://github.com/valdecircarvalho/terraform-demo" target="_blank"> github.com/valdecircarvalho/terraform-demo</a>
                     <br>
-
-                     <img src="images/terraform-iac.png" width="75%" height="75%">
-
+                    Criado por: Valdecir Carvalho - <a href="http://homelaber.com.br" target="_blank">homelaber.com.br</a>
                 </div>
 
                 <div class="split-lists">
