@@ -46,9 +46,22 @@
                     echo "<br>";
                     echo "REMOTE_IP: ";
                     echo $_SERVER['REMOTE_ADDR'];
-                    echo "</h1>"
+                    exec("uptime", $system); // get the uptime stats 
+                    $string = $system[0]; // this might not be necessary 
+                    $uptime = explode(" ", $string); // break up the stats into an array 
+
+                    $up_days = $uptime[4]; // grab the days from the array 
+
+                    $hours = explode(":", $uptime[7]); // split up the hour:min in the stats 
+
+                    $up_hours = $hours[0]; // grab the hours 
+                    $mins = $hours[1]; // get the mins 
+                    $up_mins = str_replace(",", "", $mins); // strip the comma from the mins 
+                    echo "<br>";
+                    echo "UPTIME:  " . $up_days . " days, " . $up_hours . " hours, and " . $up_mins . " minutes."; 
+                    echo "</h1>" 
                     ?>
-                    
+                   
                     <br>
 
                     <span class="tagline">DEMO TERRAFORM</span>
