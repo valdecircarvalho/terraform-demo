@@ -15,13 +15,12 @@ provider "aws" {
   secret_key = "${var.aws_secret_key}"
   region     = "us-east-1"
 }
-
 resource "aws_instance" "web-demo" {
   ami           = "ami-0a313d6098716f372" #ubuntu 
   instance_type = "t2.micro"
   count         = "1"
 
-  # key_name          = "terraform-user"
+key_name                    = "demo-terraform"
 
   tags {
     Name        = "web-demo-aws-ug-sp"

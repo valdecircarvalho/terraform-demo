@@ -1,18 +1,20 @@
-# Declaração do Provider a ser utilizado
-provider "aws" { #provider AWS
-  access_key = "FAKE3FGWCKVDTADPFAKE"   # coloque sua access key
-  secret_key = "fAkEzr4nHhTlpkycFAKet7Ryvp+OOJ2S/nuGuu0d" #coloque sua secret key
-  region     = "us-east-1"
+
+
+provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "${var.aws_region}"
 }
+
 resource "aws_vpc" "vpc-demo" {
-  cidr_block           = "10.100.0.0/24"
+  cidr_block           = "${var.vpc_cidr_block}"
   enable_dns_hostnames = true
   enable_dns_support   = true
   instance_tenancy     = "default"
 
   tags {
     "Name"     = "vpc-demo"
-    "ambiente" = "demo"
+    "Environment" = "${var.environmenty}"
   }
 }
 
@@ -21,8 +23,8 @@ resource "aws_internet_gateway" "ig-demo" {
   vpc_id = "${aws_vpc.vpc-demo.id}"
 
   tags {
-    "Name"     = "demo"
-    "ambiente" = "demo"
+    "Name"     = "ig-demo"
+     "Environment" = "${var.environmenty}"
   }
 }
 
@@ -31,13 +33,13 @@ resource "aws_route_table" "rt-demo" {
   vpc_id = "${aws_vpc.vpc-demo.id}"
 
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = "${var.route_cidr_block}"
     gateway_id = "${aws_internet_gateway.ig-demo.id}"
   }
 
   tags {
     "Name"     = "rt-demo"
-    "ambiente" = "demo"
+     "Environment" = "${var.environmenty}"
   }
 }
 
@@ -68,19 +70,19 @@ resource "aws_default_security_group" "default" {
 
   tags {
     "Name"     = "vpc-default"
-    "ambiente" = "demo"
+     "Environment" = "${var.environmenty}"
   }
 }
 
 resource "aws_subnet" "subnet-demo" {
   vpc_id                  = "${aws_vpc.vpc-demo.id}"
-  cidr_block              = "10.100.0.0/24"
+  cidr_block              = "${var.subnet_cidr_block}"
   availability_zone       = "us-east-1c"
   map_public_ip_on_launch = false
 
   tags {
     "Name"     = "sn-demo"
-    "ambiente" = "demo"
+     "Environment" = "${var.environmenty}"
   }
 }
 
@@ -91,7 +93,7 @@ resource "aws_security_group" "sg-demo" {
 
   tags {
     "Name"     = "sg-demo"
-    "ambiente" = "demo"
+     "Environment" = "${var.environmenty}"
   }
 
   ingress {
@@ -150,18 +152,18 @@ resource "aws_elb" "web" {
   instances = ["${aws_instance.web-demo.*.id}"]
 
   tags {
-     "ambiente" = "demo"
+      "Environment" = "${var.environmenty}"
   }
 }
 
 
 resource "aws_instance" "web-demo" {
-  ami               = "ami-0a313d6098716f372"
-  availability_zone = "us-east-1c"
+  ami               = "${var.ami}"
+  availability_zone = "${var.aws_availability_zone}"
   ebs_optimized     = false
   instance_type     = "t2.micro"
   monitoring        = false
- # key_name          = "terraform-user"
+ # key_name          = "${var.key_name}"
   subnet_id         = "${aws_subnet.subnet-demo.id}"
 
   vpc_security_group_ids = ["${aws_security_group.sg-demo.id}"]
@@ -172,20 +174,15 @@ resource "aws_instance" "web-demo" {
   count             = "2"
 
   root_block_device {
-    volume_type           = "gp2"
-    volume_size           = 10
+    volume_type           = "${var.volume_type}"
+    volume_size           = "${var.volume_size}"
     delete_on_termination = true
   }
 
-#  user_data = "${data.template_file.user_data.rendered}"
-
-  #user_data = "${file("install.sh")}"
-user_data = "${file("${path.module}/src/install.sh")}"
-  #user_data = "sudo touch /var/log/oi.txt"
-  #user_data_base64 =  "${base64encode(file("${path.module}/install.sh"))}"
+user_data = "${file("${path.module}/src/install-demo-full.sh")}"
 
   tags {
-    "ambiente" = "demo"
+     "Environment" = "${var.environmenty}"
     "Name"     = "web-demo-${count.index}"
   }
 }
