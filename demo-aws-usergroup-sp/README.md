@@ -4,13 +4,11 @@ Esse repositório contém o codigo Terraform e o website demo utilizado pelo dep
 
 ## demo-aws-usergroup-sp
 
-em construção .....................................
-
 **From Zero to Useful: Terraform para Sysadmins** 
 
 _Como começar a usar o Terraform agora para automatizar seu dia a dia_
 
-Link: 
+## _download pdf:
 
 ## instruções:
 
@@ -52,6 +50,8 @@ em construção .....................................
 - https://github.com/shuaibiyy/awesome-terraform
 
 ### artigos
+- https://blog.gruntwork.io/introducing-the-yak-shaving-series-247e7f20f81
+- https://blog.gruntwork.io/yak-shaving-series-2-a-tale-of-12-errors-9e404b718660
 - https://blog.gruntwork.io/
 - https://thecode.pub/creating-your-cloud-servers-with-terraform-bfa01a499bad
 - https://itnext.io/things-i-wish-i-knew-about-terraform-before-jumping-into-it-43ee92a9dd65

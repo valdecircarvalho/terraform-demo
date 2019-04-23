@@ -9,5 +9,3 @@ output "IP Publico Servidor Web" {
 output "Endereço DNS do ELB " {
   value = "${aws_elb.web.dns_name}"
 }
-
-

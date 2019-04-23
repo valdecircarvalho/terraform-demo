@@ -7,6 +7,7 @@ provider "aws" { #provider AWS
 
 ## variaveis - serão carregadas do arquivo terraform.tfvars
 variable "aws_access_key" {}
+
 variable "aws_secret_key" {}
 
 ## Você pode carregar suas credenciais de um arquivo .tfvars
@@ -15,12 +16,16 @@ provider "aws" {
   secret_key = "${var.aws_secret_key}"
   region     = "us-east-1"
 }
+
 resource "aws_instance" "web-demo" {
   ami           = "ami-0a313d6098716f372" #ubuntu 
   instance_type = "t2.micro"
   count         = "1"
 
-key_name                    = "demo-terraform"
+  key_name = "demo-terraform"
+
+  #user_data = "${file("${path.module}/../src/install-demo.sh")}"
+  user_data = "${file("../src/install-demo-1.sh")}"
 
   tags {
     Name        = "web-demo-aws-ug-sp"

@@ -1,13 +1,18 @@
 ## variaveis - serão carregadas do arquivo terraform.tfvars
 variable "aws_access_key" {}
+
 variable "aws_secret_key" {}
 
 variable "aws_region" {
-
   default = "us-east-1"
 }
+
 variable "aws_availability_zone" {
-  default = "us-east-1c"
+  default = "us-east-1f"
+}
+
+variable "key_name" {
+  default = "demo-terraform"
 }
 
 variable "environment" {
@@ -34,10 +39,6 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "key_name" {
-  default = "terraform-user"
-}
-
 variable "volume_type" {
   default = "gp2"
 }
@@ -45,4 +46,3 @@ variable "volume_type" {
 variable "volume_size" {
   default = "10"
 }
-

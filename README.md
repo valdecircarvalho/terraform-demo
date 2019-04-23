@@ -13,10 +13,12 @@ Esse repositório contém o codigo Terraform e o website demo utilizado pelo dep
 
     Link: http://homelaber.com.br/evento-mvpconf-latam-2019-vou-palestrar/
 
+- **32º Encontro AWS User Group São Paulo**
+- [demo-aws-usergroup-sp](https://github.com/valdecircarvalho/terraform-demo/tree/master/demo-aws-usergroup-sp) - Código utilizado na demonstração realizada durante o evento 32º AWS User Group.
 
-## _site demo:
+    Link: http://homelaber.com.br/32-evento-aws-user-group-sao-paulo/
 
-![Site Demo](/images/demo.jpg)
+
 
 ## _contato:
 

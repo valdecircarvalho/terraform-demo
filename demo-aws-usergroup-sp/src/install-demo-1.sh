@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 
-echo "==> Installing packages..."
-sudo apt-get -qq update
-sudo apt-get -yqq install apache2 php git
-
-echo "==> Setup website demo..."
-cd $HOME ## arrumar se o nome do usuario azure for diferente 
-sudo git clone https://github.com/valdecircarvalho/terraform-demo ## arrumar o caminho, caso você clone o repo
+sudo apt-get update
+sudo apt-get -y install apache2 php
+sleep 5s
+sudo git clone https://github.com/valdecircarvalho/terraform-demo 
 cd terraform-demo
-sudo rm -rf demo*
-sudo rm README.md
-sudo rm /var/www/html/index.html
-sudo cp -r . /var/www/html/
-
-
-sudo cp ~/terraform-demo/demo-aws-usergroup-sp/src/app-iss/index.html /var/www/html/
-sudo cp ~/terraform-demo/demo-aws-usergroup-sp/src/app-iss/index.html /var/www/html/
+sudo cp -rv /terraform-demo/demo-aws-usergroup-sp/src/app-iss/* /var/www/html/
+#sudo rm -rf terraform-demo/
