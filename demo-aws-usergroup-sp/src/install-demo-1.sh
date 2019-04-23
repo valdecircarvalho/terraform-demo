@@ -14,3 +14,5 @@ sudo rm /var/www/html/index.html
 sudo cp -r . /var/www/html/
 
 
+sudo cp ~/terraform-demo/demo-aws-usergroup-sp/src/app-iss/index.html /var/www/html/
+sudo cp ~/terraform-demo/demo-aws-usergroup-sp/src/app-iss/index.html /var/www/html/
